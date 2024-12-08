@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <!-- Login Fragment -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.deliveryproyecto.General.InicioSesion"
+        android:label="Inicio de Sesión"
+        tools:layout="@layout/login">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_restaurantsFragment"
+            app:destination="@id/restaurantsFragment" />
+    </fragment>
+
+    <!-- Register Fragment -->
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.deliveryproyecto.General.Registrar"
+        android:label="Registro"
+        tools:layout="@layout/registrar">
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <!-- Restaurants Fragment -->
+    <fragment
+        android:id="@+id/restaurantsFragment"
+        android:name="com.example.deliveryproyecto.General.RestaurantsFragment"
+        android:label="Restaurantes"
+        tools:layout="@layout/lista_restaurantes">
+        <action
+            android:id="@+id/action_restaurantsFragment_to_restaurantDetailsFragment"
+            app:destination="@id/restaurantDetailsFragment" />
+    </fragment>
+
+    <!-- Restaurant Details Fragment -->
+    <fragment
+        android:id="@+id/restaurantDetailsFragment"
+        android:name="com.example.deliveryproyecto.General.RestaurantList"
+        android:label="Detalles del Restaurante"
+        tools:layout="@layout/lista_productos" />
+
+
+
+</navigation>
