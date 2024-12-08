@@ -46,7 +46,21 @@
         android:id="@+id/restaurantDetailsFragment"
         android:name="com.example.deliveryproyecto.General.RestaurantList"
         android:label="Detalles del Restaurante"
-        tools:layout="@layout/lista_productos" />
+        tools:layout="@layout/lista_productos">
+
+        <!-- Acción para navegar al carrito -->
+        <action
+            android:id="@+id/action_restaurantDetailsFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.deliveryproyecto.General.Carrito"
+        android:label="Carrito"
+        tools:layout="@layout/carrito" />
+
+
 
 
 

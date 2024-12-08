@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.deliveryproyecto.DataModels.Product
+import com.example.deliveryproyecto.Repositories.DatosCarrito
 import com.example.deliveryproyecto.databinding.ItemProductosBinding
 import com.squareup.picasso.Picasso
 
@@ -21,9 +22,11 @@ class ProductoAdapter(private val products: List<Product>) :
             Picasso.get().load(product.image).into(binding.productImage)
 
             binding.addToCartButton.setOnClickListener {
-                // Lógica para agregar el producto al carrito
+                DatosCarrito.addProduct(product)
                 Toast.makeText(binding.root.context, "${product.name} agregado al carrito", Toast.LENGTH_SHORT).show()
             }
+
+
         }
     }
 
