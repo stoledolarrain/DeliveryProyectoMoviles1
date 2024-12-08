@@ -1,5 +1,6 @@
 package com.example.deliveryproyecto.General
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.deliveryproyecto.Adapters.ProductoAdapter
 import com.example.deliveryproyecto.Repositories.DatosCarrito
 import com.example.deliveryproyecto.databinding.CarritoBinding
+import com.example.deliveryproyecto.Maps.MapsActivity
 
 class Carrito : Fragment() {
 
@@ -38,6 +40,22 @@ class Carrito : Fragment() {
             DatosCarrito.clearCart()
             adapter.notifyDataSetChanged()
             Toast.makeText(context, "Carrito vaciado", Toast.LENGTH_SHORT).show()
+        }
+
+        // Botón para realizar pedido
+        binding.btnRealizarPedido.setOnClickListener {
+            if (cartItems.isNotEmpty()) {
+                val restaurantLatitude = 40.748817 // Aquí debes obtener la latitud del restaurante
+                val restaurantLongitude = -73.985428 // Aquí debes obtener la longitud del restaurante
+
+                val intent = Intent(requireContext(), MapsActivity::class.java).apply {
+                    putExtra("latitude", restaurantLatitude)
+                    putExtra("longitude", restaurantLongitude)
+                }
+                startActivity(intent)
+            } else {
+                Toast.makeText(context, "El carrito está vacío", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
