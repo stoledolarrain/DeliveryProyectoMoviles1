@@ -5,52 +5,47 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/loginFragment">
 
-    <!-- Login Fragment -->
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.deliveryproyecto.General.InicioSesion"
         android:label="Inicio de Sesión"
         tools:layout="@layout/login">
         <action
-            android:id="@+id/action_loginFragment_to_registerFragment"
+            android:id="@+id/action_login_to_registrar"
             app:destination="@id/registerFragment" />
         <action
-            android:id="@+id/action_loginFragment_to_restaurantsFragment"
+            android:id="@+id/action_login_to_listaRestaurantes"
             app:destination="@id/restaurantsFragment" />
     </fragment>
 
-    <!-- Register Fragment -->
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.deliveryproyecto.General.Registrar"
         android:label="Registro"
         tools:layout="@layout/registrar">
         <action
-            android:id="@+id/action_registerFragment_to_loginFragment"
+            android:id="@+id/action_registrar_to_login"
             app:destination="@id/loginFragment" />
     </fragment>
 
-    <!-- Restaurants Fragment -->
     <fragment
         android:id="@+id/restaurantsFragment"
-        android:name="com.example.deliveryproyecto.General.RestaurantsFragment"
+        android:name="com.example.deliveryproyecto.General.RestaurantList"
         android:label="Restaurantes"
         tools:layout="@layout/lista_restaurantes">
         <action
-            android:id="@+id/action_restaurantsFragment_to_restaurantDetailsFragment"
+            android:id="@+id/action_listaRestaurantes_to_listaProductos"
             app:destination="@id/restaurantDetailsFragment" />
     </fragment>
 
-    <!-- Restaurant Details Fragment -->
     <fragment
         android:id="@+id/restaurantDetailsFragment"
-        android:name="com.example.deliveryproyecto.General.RestaurantList"
+        android:name="com.example.deliveryproyecto.General.ProductosList"
         android:label="Detalles del Restaurante"
         tools:layout="@layout/lista_productos">
 
-        <!-- Acción para navegar al carrito -->
         <action
-            android:id="@+id/action_restaurantDetailsFragment_to_cartFragment"
+            android:id="@+id/action_listaProductos_to_carritoFragment"
             app:destination="@id/cartFragment" />
     </fragment>
 

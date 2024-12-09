@@ -40,18 +40,16 @@ class InicioSesion : Fragment() {
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 loginUser(email, password)
             } else {
-                Toast.makeText(context, "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Por favor, llena todos los campos", Toast.LENGTH_SHORT).show()
             }
         }
 
-        // Navegar al fragmento de registro
         binding.btnRegister.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+            findNavController().navigate(R.id.action_login_to_registrar)
         }
     }
 
     private fun loginUser(email: String, password: String) {
-        try {
             val apiService = ApiRepository.getApiService()
             val loginRequest = mapOf("email" to email, "password" to password)
 
@@ -66,8 +64,6 @@ class InicioSesion : Fragment() {
                         } else {
                             Toast.makeText(context, "Error al obtener el token", Toast.LENGTH_SHORT).show()
                         }
-                    } else {
-                        Toast.makeText(context, "Credenciales incorrectas", Toast.LENGTH_SHORT).show()
                     }
                 }
 
@@ -75,19 +71,15 @@ class InicioSesion : Fragment() {
                     Toast.makeText(context, "Error en el servidor: ${t.message}", Toast.LENGTH_SHORT).show()
                 }
             })
-        } catch (e: Exception) {
-            Toast.makeText(context, "Error inesperado: ${e.message}", Toast.LENGTH_SHORT).show()
-        }
     }
 
     private fun navigateToRestaurants() {
         val currentDestination = findNavController().currentDestination?.id
         if (currentDestination == R.id.loginFragment) {
-            findNavController().navigate(R.id.action_loginFragment_to_restaurantsFragment)
-        } else {
-            Toast.makeText(context, "No se puede navegar desde el fragmento actual", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_login_to_listaRestaurantes)
         }
     }
+
 
     private fun saveToken(token: String) {
         val sharedPreferences = requireContext().getSharedPreferences("delivery_prefs", Context.MODE_PRIVATE)

@@ -16,12 +16,10 @@ object ApiRepository {
 
     private lateinit var context: Context
 
-    // Configuración del interceptor para logs
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
-    // Interceptor para el token de autenticación
     private val authInterceptor = Interceptor { chain ->
         val token = context.getSharedPreferences("delivery_prefs", Context.MODE_PRIVATE)
             .getString("auth_token", null)

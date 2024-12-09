@@ -42,11 +42,10 @@ class Carrito : Fragment() {
             Toast.makeText(context, "Carrito vaciado", Toast.LENGTH_SHORT).show()
         }
 
-        // Botón para realizar pedido
         binding.btnRealizarPedido.setOnClickListener {
             if (cartItems.isNotEmpty()) {
-                val restaurantLatitude = 40.748817 // Aquí debes obtener la latitud del restaurante
-                val restaurantLongitude = -73.985428 // Aquí debes obtener la longitud del restaurante
+                val restaurantLatitude = -17.75915768559145
+                val restaurantLongitude = -63.17648315518687
 
                 val intent = Intent(requireContext(), MapsActivity::class.java).apply {
                     putExtra("latitude", restaurantLatitude)

@@ -31,16 +31,16 @@ class Registrar : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Manejar el clic en el botón de registro
         binding.btnRegister.setOnClickListener {
             val name = binding.etName.text.toString()
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
 
+
             if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
                 registerUser(name, email, password)
             } else {
-                Toast.makeText(context, "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Por favor, llena los datos.", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -61,18 +61,13 @@ class Registrar : Fragment() {
                     if (message != null) {
                         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
                     }
-                    findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
-                } else {
-                    Toast.makeText(context, "Error en el registro", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_registrar_to_login)
                 }
             }
-
             override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
                 Toast.makeText(context, "Error en el servidor", Toast.LENGTH_SHORT).show()
             }
         })
-
-
     }
 
     override fun onDestroyView() {
