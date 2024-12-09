@@ -37,7 +37,6 @@ class ProductosList : Fragment() {
         val restaurantId = arguments?.getInt("restaurant_id") ?: return
         getRestaurantDetails(restaurantId)
 
-        // Configurar el botón "Ver Carrito"
         binding.viewCartButton.setOnClickListener {
             findNavController().navigate(R.id.action_listaProductos_to_carritoFragment)
         }
