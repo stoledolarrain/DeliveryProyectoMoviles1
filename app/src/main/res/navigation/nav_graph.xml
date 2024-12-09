@@ -3,54 +3,54 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/pantallaLogin">
 
     <fragment
-        android:id="@+id/loginFragment"
+        android:id="@+id/pantallaLogin"
         android:name="com.example.deliveryproyecto.General.InicioSesion"
         android:label="Inicio de Sesión"
         tools:layout="@layout/login">
         <action
             android:id="@+id/action_login_to_registrar"
-            app:destination="@id/registerFragment" />
+            app:destination="@id/pantallaRegistrar" />
         <action
             android:id="@+id/action_login_to_listaRestaurantes"
-            app:destination="@id/restaurantsFragment" />
+            app:destination="@id/pantallaListaRestaurantes" />
     </fragment>
 
     <fragment
-        android:id="@+id/registerFragment"
+        android:id="@+id/pantallaRegistrar"
         android:name="com.example.deliveryproyecto.General.Registrar"
         android:label="Registro"
         tools:layout="@layout/registrar">
         <action
             android:id="@+id/action_registrar_to_login"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/pantallaLogin" />
     </fragment>
 
     <fragment
-        android:id="@+id/restaurantsFragment"
+        android:id="@+id/pantallaListaRestaurantes"
         android:name="com.example.deliveryproyecto.General.RestaurantList"
         android:label="Restaurantes"
         tools:layout="@layout/lista_restaurantes">
         <action
             android:id="@+id/action_listaRestaurantes_to_listaProductos"
-            app:destination="@id/restaurantDetailsFragment" />
+            app:destination="@id/pantallaListaProductos" />
     </fragment>
 
     <fragment
-        android:id="@+id/restaurantDetailsFragment"
+        android:id="@+id/pantallaListaProductos"
         android:name="com.example.deliveryproyecto.General.ProductosList"
         android:label="Detalles del Restaurante"
         tools:layout="@layout/lista_productos">
 
         <action
             android:id="@+id/action_listaProductos_to_carritoFragment"
-            app:destination="@id/cartFragment" />
+            app:destination="@id/pantallaCarrito" />
     </fragment>
 
     <fragment
-        android:id="@+id/cartFragment"
+        android:id="@+id/pantallaCarrito"
         android:name="com.example.deliveryproyecto.General.Carrito"
         android:label="Carrito"
         tools:layout="@layout/carrito" />

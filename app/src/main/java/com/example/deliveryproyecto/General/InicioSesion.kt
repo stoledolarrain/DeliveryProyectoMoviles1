@@ -59,8 +59,8 @@ class InicioSesion : Fragment() {
                         val token = response.body()?.token
                         if (token != null) {
                             saveToken(token)
-                            Toast.makeText(context, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
-                            navigateToRestaurants()
+                            Toast.makeText(context, "Ha iniciado sesión correctamente", Toast.LENGTH_SHORT).show()
+                            goToRestaurantes()
                         } else {
                             Toast.makeText(context, "Error al obtener el token", Toast.LENGTH_SHORT).show()
                         }
@@ -73,9 +73,9 @@ class InicioSesion : Fragment() {
             })
     }
 
-    private fun navigateToRestaurants() {
+    private fun goToRestaurantes() {
         val currentDestination = findNavController().currentDestination?.id
-        if (currentDestination == R.id.loginFragment) {
+        if (currentDestination == R.id.pantallaLogin) {
             findNavController().navigate(R.id.action_login_to_listaRestaurantes)
         }
     }

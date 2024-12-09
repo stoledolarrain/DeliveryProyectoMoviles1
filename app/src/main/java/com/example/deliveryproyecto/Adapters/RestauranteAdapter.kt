@@ -25,7 +25,7 @@ class RestauranteAdapter(private val restaurants: List<Restaurant>) :
                 val bundle = Bundle().apply {
                     putInt("restaurant_id", restaurant.id)
                 }
-                it.findNavController().navigate(R.id.restaurantDetailsFragment, bundle)
+                it.findNavController().navigate(R.id.pantallaListaProductos, bundle)
             }
 
         }
